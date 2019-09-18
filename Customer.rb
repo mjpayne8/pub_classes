@@ -19,6 +19,9 @@ class Customer
     pub.remove_drinks(drink)
   end
 
+  def increase_drunkeness(drink)
+    @drunkeness += drink.alcohol_level
+  end
 
 
 

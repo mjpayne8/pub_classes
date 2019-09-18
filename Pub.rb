@@ -23,4 +23,6 @@ class Pub
   def check_age(customer)
     return customer.age() >= 18
   end
+
+
 end
