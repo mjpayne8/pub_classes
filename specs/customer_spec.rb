@@ -20,4 +20,8 @@ class TestCustomer < MiniTest::Test
     assert_equal(300, @customer.wallet())
   end
 
+  def test_reduce_wallet__returns_296()
+    @customer.reduce_wallet(4)
+    assert_equal(296, @customer.wallet)
+  end
 end
