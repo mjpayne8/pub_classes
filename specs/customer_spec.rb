@@ -78,5 +78,4 @@ def test_decrease_drunkeness()
 end
 
 
-
 end

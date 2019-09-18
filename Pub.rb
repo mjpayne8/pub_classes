@@ -22,19 +22,33 @@ class Pub
   end
 
   def remove_drinks(drink)
-    @drinks.delete(drink)
+    @drinks.delete_at(@drinks.index(drink))
   end
 
   def remove_food(food)
-    p food
-    p @food
     @food.delete(food)
-    p @food
   end
 
   def check_age(customer)
     return customer.age() >= 18
   end
 
+  def stock()
+    unique_drinks = @drinks.uniq()
+    stock_array = []
+    for unique_drink_item in unique_drinks
+      input = {
+        drink_type: unique_drink_item,
+        number: 0
+      }
+      for drink_item in @drinks
+        if drink_item == unique_drink_item
+          input[:number] += 1
+        end
+      end
+      stock_array.push(input)
+    end
+    return stock_array
+  end
 
 end

@@ -54,7 +54,14 @@ class TestPub < MiniTest::Test
     assert_equal(true, @pub.check_age(@customer2))
   end
 
-
+  def test_stock
+    stock = @pub.stock()
+    expected = [
+      {drink_type: @drink,
+      number: 1}
+    ]
+    assert_equal(expected, stock)
+  end
 
 
 end
