@@ -19,4 +19,8 @@ class Pub
   def remove_drinks(drink)
     @drinks.delete(drink)
   end
+
+  def check_age(customer)
+    return customer.age() >= 18
+  end
 end
