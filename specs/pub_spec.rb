@@ -63,5 +63,9 @@ class TestPub < MiniTest::Test
     assert_equal(expected, stock)
   end
 
+ def test_stock_value()
+  assert_equal(4, @pub.stock_value)
+ end 
+
 
 end

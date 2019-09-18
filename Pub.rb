@@ -51,4 +51,12 @@ class Pub
     return stock_array
   end
 
+  def stock_value()
+    total = 0
+    for drink in @drinks
+      total += drink.price 
+    end
+    return total
+  end
+
 end
