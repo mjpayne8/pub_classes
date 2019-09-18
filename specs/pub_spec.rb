@@ -15,5 +15,14 @@ class TestPub < MiniTest::Test
     assert_equal("Labyrinth", @pub.name)
   end
 
+  def test_pub_name__return_2000()
+    assert_equal(2000, @pub.till())
+  end
+
+  def test_increase_till__till_increase_to_2004()
+    @pub.increase_till(4)
+    assert_equal(2004, @pub.till())
+  end
+
 
 end
