@@ -12,4 +12,11 @@ class Pub
     @till += number
   end
 
+  def number_of_drinks()
+    return @drinks.length()
+  end
+
+  def remove_drinks(drink)
+    @drinks.delete(drink)
+  end
 end

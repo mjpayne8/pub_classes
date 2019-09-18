@@ -24,4 +24,13 @@ class TestCustomer < MiniTest::Test
     @customer.reduce_wallet(4)
     assert_equal(296, @customer.wallet)
   end
+
+  def test_buy_drink()
+@customer.buy_drink(@drink)
+assert_equal(296, @customer.wallet)
+assert_equal(2004, @pub.till)
+assert_equal(0, @pub.number_of_drinks)
+ end
+
+
 end

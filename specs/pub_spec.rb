@@ -24,5 +24,20 @@ class TestPub < MiniTest::Test
     assert_equal(2004, @pub.till())
   end
 
+  def test_number_of_drinks()
+    assert_equal(1, @pub.number_of_drinks)
+  end
+
+  def test_remove_drinks___return_number_of_drinks_0
+    @pub.remove_drinks(@drink)
+    assert_equal(0, @pub.number_of_drinks)
+  end
+  
+
+
+
+
+
+
 
 end
