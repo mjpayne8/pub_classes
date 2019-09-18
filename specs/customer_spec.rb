@@ -9,7 +9,7 @@ class TestCustomer < MiniTest::Test
   def setup()
     @drink = Drink.new("Vodka", 4)
     @pub = Pub.new("Labyrinth", 2000, [@drink])
-    @customer = Customer.new("Adrien", 300)
+    @customer = Customer.new("Adrien", 300, 12)
   end
 
   def test_name__returns_adrien()
@@ -18,6 +18,14 @@ class TestCustomer < MiniTest::Test
 
   def test_wallet__returns_300()
     assert_equal(300, @customer.wallet())
+  end
+
+  def test_age__returns_12()
+    assert_equal(12, @customer.age())
+  end
+
+  def test_drunkeness__returns_0()
+    assert_equal(0, @customer.drunkeness())
   end
 
   def test_reduce_wallet__returns_296()

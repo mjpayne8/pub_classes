@@ -1,10 +1,12 @@
 class Customer
 
-  attr_reader(:name, :wallet)
+  attr_reader(:name, :wallet, :age, :drunkeness)
 
-  def initialize(name, wallet)
+  def initialize(name, wallet, age)
     @name = name
     @wallet = wallet
+    @age = age
+    @drunkeness = 0
   end
 
   def reduce_wallet(number)
