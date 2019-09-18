@@ -22,6 +22,18 @@ class Customer
     end
   end
 
+  def buy_food(food, pub)
+      reduce_wallet(food.price())
+      pub.increase_till(food.price())
+      pub.remove_food(food)
+      decrease_drunkeness(food)
+  end
+
+  def decrease_drunkeness(food)
+  @drunkeness -= food.rejuvenation_level
+  end
+
+
   def increase_drunkeness(drink)
     @drunkeness += drink.alcohol_level
   end
