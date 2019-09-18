@@ -14,14 +14,18 @@ class Customer
   end
 
   def buy_drink(drink, pub)
-    reduce_wallet(drink.price())
-    pub.increase_till(drink.price())
-    pub.remove_drinks(drink)
+    if pub.check_age(self) && @drunkeness < 40
+      reduce_wallet(drink.price())
+      pub.increase_till(drink.price())
+      pub.remove_drinks(drink)
+      increase_drunkeness(drink)
+    end
   end
 
   def increase_drunkeness(drink)
     @drunkeness += drink.alcohol_level
   end
+
 
 
 

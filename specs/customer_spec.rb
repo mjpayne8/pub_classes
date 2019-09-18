@@ -8,8 +8,10 @@ class TestCustomer < MiniTest::Test
 
   def setup()
     @drink = Drink.new("Vodka", 4, 20)
-    @pub = Pub.new("Labyrinth", 2000, [@drink])
-    @customer = Customer.new("Adrien", 300, 12)
+    @second_drink = Drink.new("Tequila", 4, 50)
+    @pub = Pub.new("Labyrinth", 2000, [@drink, @second_drink])
+    @customer = Customer.new("Adrien", 300, 21)
+    @second_customer = Customer.new("Mark", 200, 12)
   end
 
   def test_name__returns_adrien()
@@ -21,7 +23,7 @@ class TestCustomer < MiniTest::Test
   end
 
   def test_age__returns_12()
-    assert_equal(12, @customer.age())
+    assert_equal(12, @second_customer.age())
   end
 
   def test_drunkeness__returns_0()
@@ -37,13 +39,29 @@ class TestCustomer < MiniTest::Test
     @customer.buy_drink(@drink, @pub)
     assert_equal(296, @customer.wallet)
     assert_equal(2004, @pub.till)
-    assert_equal(0, @pub.number_of_drinks)
+    assert_equal(1, @pub.number_of_drinks)
   end
 
   def test_increase_drunkeness_by_alcohol_level
     @customer.increase_drunkeness(@drink)
     assert_equal(20, @customer.drunkeness())
   end
+
+  def test_buy_drink__nothing_happens_if_underage()
+    @second_customer.buy_drink(@drink, @pub)
+    assert_equal(200, @second_customer.wallet)
+    assert_equal(2000, @pub.till)
+    assert_equal(2, @pub.number_of_drinks)
+  end
+
+  def test_buy_drink__nothing_happens_if_too_drunk()
+    @customer.buy_drink(@second_drink, @pub)
+    @customer.buy_drink(@drink, @pub)
+    assert_equal(296, @customer.wallet)
+    assert_equal(2004, @pub.till)
+    assert_equal(1, @pub.number_of_drinks)
+  end
+
 
 
 end
